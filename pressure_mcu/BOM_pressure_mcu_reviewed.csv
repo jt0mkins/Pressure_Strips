@@ -1,0 +1,42 @@
+Reference,Qty,Value,Description,Package,Manufacturer,MPN,LCSC,Voltage / Rating,Tolerance / Spec,Datasheet,Notes
+U4,1,STM32H562RGT6,"ARM Cortex-M33 MCU, 1MB flash, 640KB RAM, USB FS",LQFP-64 10x10mm,STMicroelectronics,STM32H562RGT6,C19711662,1.71-3.6 V,-,https://www.st.com/resource/en/datasheet/stm32h562rg.pdf,LCSC verified in stock. VREF+ bonded to VDDA on LQFP64.
+U2,1,AP2112K-3.3,"LDO regulator, 600 mA, fixed 3.3 V, enable",SOT-23-5,Diodes Incorporated,AP2112K-3.3TRG1,C51118,Vin 2.5-6 V / Vout 3.3 V,+/-1.5%,https://www.diodes.com/assets/Datasheets/AP2112.pdf,JLC Basic. Needs >=1 uF X5R/X7R at VIN - MISSING on this board.
+U7,1,TCA9548APWR,"8-channel bidirectional I2C/SMBus switch with reset",TSSOP-24,Texas Instruments,TCA9548APWR,C130026,1.65-5.5 V,-,https://www.ti.com/lit/ds/symlink/tca9548a.pdf,A0/A1/A2 = GND -> address 0x70. RESET pin must be pulled to VCC - currently floating.
+Y2,1,12 MHz,"Crystal, HSE, 4-pad SMD",SMD 3225 (3.2x2.5mm),Abracon (schematic) / YXC (JLC alt),ABM8G-12.000MHZ-4Y-T3 / X322512MSB4SI,C9002 (YXC alt),-,ABM8G CL=10 pF; YXC C9002 CL=20 pF,https://abracon.com/Resonators/ABM8G.pdf,"Load caps C31/C32 (27 pF) match neither CL - choose crystal then set C = 2*(CL - Cstray)."
+J2,1,USB Micro-B,"USB 2.0 Micro-B receptacle, SMT + THT shield legs",Amphenol 10118193,Amphenol ICC,10118193-0001LF,C132562,-,-,https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/inputoutput/io_usb_micro.pdf,No ESD protection on D+/D-/VBUS - add TVS array.
+J4,1,Strip Conn 1,"Wire-to-board header 1x5, 1.50 mm pitch, vertical",Wuerth WR-WTB 64800511622,Wuerth Elektronik,648005113222 (verify variant),verify (Wuerth not always on LCSC),-,-,https://www.we-online.com/components/products/datasheet/648005113222.pdf,Does NOT mate with strip board J1 (2.0 mm header / JST EH). Pick one mating pair.
+J5,1,Strip Conn 2,"Wire-to-board header 1x5, 1.50 mm pitch, vertical",Wuerth WR-WTB 64800511622,Wuerth Elektronik,648005113222 (verify variant),verify,-,-,https://www.we-online.com/components/products/datasheet/648005113222.pdf,See J4.
+J6,1,Strip Conn 3,"Wire-to-board header 1x5, 1.50 mm pitch, vertical",Wuerth WR-WTB 64800511622,Wuerth Elektronik,648005113222 (verify variant),verify,-,-,https://www.we-online.com/components/products/datasheet/648005113222.pdf,See J4.
+J7,1,Strip Conn 4,"Wire-to-board header 1x5, 1.50 mm pitch, vertical",Wuerth WR-WTB 64800511622,Wuerth Elektronik,648005113222 (verify variant),verify,-,-,https://www.we-online.com/components/products/datasheet/648005113222.pdf,See J4.
+J8,1,SWD,"Cortex debug, 2x5 1.27 mm no-legs (Tag-Connect footprint)",Tag-Connect TC2050-IDC-NL,Tag-Connect,TC2050-IDC-NL,not stocked at LCSC (hand-tool part),-,-,https://www.tag-connect.com/wp-content/uploads/bsk-pdf-manager/TC2050-IDC-NL_Datasheet.pdf,"Symbol value/datasheet say JST PH - inconsistent. No VTref pin wired to probe."
+D2,1,LED_R,"LED, red, ~625 nm",0603,Hubei KENTO,KT-0603R,C2286,Vf ~1.8-2.4 V @ 20 mA,-,https://www.lcsc.com/datasheet/C2286.pdf,JLC Basic. Net LED2 not connected to a GPIO.
+D3,1,LED_G,"LED, green, ~525 nm",0603,Everlight,19-217/GHC-YR1S2/3T,C72043,Vf ~2.9-3.4 V @ 20 mA,-,https://www.lcsc.com/datasheet/C72043.pdf,"JLC Basic. Net LED1 not connected to a GPIO. 220R from 3V3 gives <1 mA - too dim."
+C33,1,2.2 uF,"MLCC, MCU VCAP (SMPS/LDO decoupling)",0603,Murata / Samsung,GRM188R61E225KA12D / CL10A225KO8NNNC,verify (e.g. C43676),25 V (>=16 V),X5R/X7R,https://www.st.com/resource/en/datasheet/stm32h562rg.pdf,"FIX FOOTPRINT: currently Resistor_SMD:R_0603. 2 x 2.2 uF for LQFP64 is correct."
+C34,1,2.2 uF,"MLCC, MCU VCAP (SMPS/LDO decoupling)",0603,Murata / Samsung,GRM188R61E225KA12D / CL10A225KO8NNNC,verify (e.g. C43676),25 V (>=16 V),X5R/X7R,https://www.st.com/resource/en/datasheet/stm32h562rg.pdf,"FIX FOOTPRINT: currently Resistor_SMD:R_0603. Tie both VCAP pins together (ST rec.)."
+C24,1,4.7 uF,"MLCC, bulk decoupling on 3V3",0603,Samsung,CL10A475KO8NNNC,verify (e.g. C19666),16 V (>=10 V),X5R,-,-,3V3 rail bulk.
+C26,1,4.7 uF,"MLCC, bulk decoupling on 3V3",0603,Samsung,CL10A475KO8NNNC,verify (e.g. C19666),16 V,X5R,-,-,3V3 rail bulk.
+C28,1,4.7 uF,"MLCC, bulk decoupling on 3V3",0603,Samsung,CL10A475KO8NNNC,verify (e.g. C19666),16 V,X5R,-,-,3V3 rail bulk.
+C30,1,4.7 uF,"MLCC, bulk decoupling on 3V3",0603,Samsung,CL10A475KO8NNNC,verify (e.g. C19666),16 V,X5R,-,-,3V3 rail bulk.
+C23,1,100 nF,"MLCC, MCU VDD decoupling",0603,Samsung / Yageo,CL10B104KB8NNNC,C1525,50 V,X7R,-,One per VDD pin - place at pins 19/32/48/64.
+C25,1,100 nF,"MLCC, MCU VDD decoupling",0603,Samsung / Yageo,CL10B104KB8NNNC,C1525,50 V,X7R,-,See C23.
+C27,1,100 nF,"MLCC, MCU VDD decoupling",0603,Samsung / Yageo,CL10B104KB8NNNC,C1525,50 V,X7R,-,See C23.
+C29,1,100 nF,"MLCC, MCU VDD / VDDA decoupling",0603,Samsung / Yageo,CL10B104KB8NNNC,C1525,50 V,X7R,-,Use one at VDDA (pin 13) with a ferrite from 3V3 - see review M4.
+C17,1,4.7 uF,"MLCC, bulk decoupling at I2C mux U7",0402,Samsung,CL05A475MP5NRNC,C23733,10 V,X5R,-,LCSC verified.
+C18,1,100 nF,"MLCC, decoupling at I2C mux U7",0402,Yageo / Samsung,CC0402KRX7R7BB104,verify (e.g. C15850),16 V (>=10 V),X7R,-,-
+C31,1,15 pF (was 27 pF),"MLCC, crystal load cap",0603,Murata,GCM1885C1H150JA16,verify (e.g. C1644),50 V,C0G/NP0,-,"Value shown assumes ABM8G CL=10 pF + ~4 pF stray. Recompute for chosen crystal (33 pF if CL=20 pF)."
+C32,1,15 pF (was 27 pF),"MLCC, crystal load cap",0603,Murata,GCM1885C1H150JA16,verify (e.g. C1644),50 V,C0G/NP0,-,See C31.
+R3,1,10 k,"Resistor, USB VBUS sense divider (upper)",0402,Yageo / UNI-ROYAL,0402WGF1002TCE,C25744,-,1%,-,Divider node V_SENSE not routed to an ADC pin - see review M6.
+R4,1,15 k,"Resistor, USB VBUS sense divider (lower)",0402,Yageo / UNI-ROYAL,0402WGF1502TCE,verify (e.g. C25752),-,1%,-,"With R3=10k gives 3.0 V at VBUS=5 V."
+R12,1,10 k,"Resistor, BOOT0 pull-down",0603,UNI-ROYAL,0603WAF1002T5E,C25804,-,1%,https://yageogroup.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf,"Consider matching to 0402 for uniformity. Add TP / 0R option to force BOOT0 high for DFU."
+R15,1,220 R,"Resistor, LED current limit (LED2 / red)",0603,UNI-ROYAL,0603WAF2200T5E,C22962,-,1%,-,~6 mA on red. Consider 1 k.
+R16,1,220 R,"Resistor, LED current limit (LED1 / green)",0603,UNI-ROYAL,0603WAF2200T5E,C22962,-,1%,-,Green Vf ~3.1 V -> <1 mA at 220R/3V3. Lower R or higher-efficiency LED.
+R17,1,0 R (was 2.2 k),"Resistor, I2C main-bus link (STM32 SCL -> U7 SCL)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,"WAS 2.2k in series - wrong. Make 0R or DNP. Real SCL pull-up (see additions) goes to 3V3."
+R18,1,0 R (was 2.2 k),"Resistor, I2C main-bus link (STM32 SDA -> U7 SDA)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,"WAS 2.2k in series - wrong. Make 0R or DNP."
+R5,1,0 R (TBD),"Resistor, I2C channel 0 SDA series (U7 SD0 -> J4)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined). 0R default; 22-100R if used for edge-rate control.
+R6,1,0 R (TBD),"Resistor, I2C channel 1 SCL series (U7 SC1 -> J5)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined).
+R7,1,0 R (TBD),"Resistor, I2C channel 1 SDA series (U7 SD1 -> J5)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined).
+R8,1,0 R (TBD),"Resistor, I2C channel 0 SCL series (U7 SC0 -> J4)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined).
+R9,1,0 R (TBD),"Resistor, I2C channel 2 SCL series (U7 SC2 -> J6)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined).
+R10,1,0 R (TBD),"Resistor, I2C channel 2 SDA series (U7 SD2 -> J6)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined).
+R11,1,0 R (TBD),"Resistor, I2C channel 3 SCL series (U7 SC3 -> J7)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined).
+R13,1,0 R (TBD),"Resistor, I2C channel 3 SDA series (U7 SD3 -> J7)",0402,UNI-ROYAL,0402WGF0000TCE,C17168,-,-,-,Value was 'R' (undefined).

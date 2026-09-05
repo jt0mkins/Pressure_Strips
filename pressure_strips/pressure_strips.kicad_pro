@@ -40,8 +40,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 0.64,
-          "width": 0.54
+          "height": 0.35,
+          "width": 0.9
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -64,7 +64,7 @@
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
-          "remove_islands": 1,
+          "remove_islands": 0,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
         }
@@ -150,7 +150,7 @@
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
+        "min_text_height": 0.7,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.2,
@@ -526,6 +526,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
+      "step": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -660,7 +661,7 @@
         "uuid": "77852055-e389-46d1-b8d6-4f954949a8e9"
       }
     ],
-    "used_designators": "",
+    "used_designators": "JP1-3,#PWR38-39,#PWR201-203,R20-22",
     "variants": []
   },
   "sheets": [
